@@ -1,6 +1,6 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
 import { default as themeSwitcher } from './theme.js';
-import Sortable from '../sortablejs';
+let sortablejs = require('sortablejs');
 
 // Selectors
 const todoForm = document.querySelector('[data-form]');
