@@ -1,0 +1,202 @@
+.todo {
+    $root: &;
+
+    &__list {
+        list-style: none;
+    }
+    
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 52px;
+        padding: 0 24px;
+        border-bottom: 1px solid $c-blue-grayish-light;
+        color: $c-text;
+        transition: border 1s;
+    
+        @include breakpoint('sm') {
+            height: 64px;
+        }
+
+        // Swap gray checkbox cirle border to gradient.
+        &:hover #{$root}__span {
+            border-color: transparent;
+    
+            &::before {
+                opacity: 1;
+                background-image: linear-gradient($c-white, $c-white), $bg-check;
+            }
+        }
+
+        // Display delete button(cross sign).
+        &:hover #{$root}__deleteBtn {
+            opacity: 1;
+            pointer-events: all;
+        }
+    
+        // Prevent to show circle border while input is checked
+        &:hover #{$root}__item-input:checked + #{$root}__label #{$root}__span::before {
+            display: none;
+        }
+
+        // styles while todo is completed
+        &.completed {
+            // label text line throught
+            #{$root}__labelText::after {
+                width: 100%;
+                opacity: 1;
+            }
+            // label text color
+            #{$root}__labelText {
+                color: $c-blue-grayish-light;
+            }
+        }
+        // style for sortable drag event
+        &.ghost {
+            background: transparentize($c-green, 0.95);
+        }
+    }
+
+    &__item-input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    
+        // change check cricle background while input is checked
+        &:checked + #{$root}__label #{$root}__span {
+            background: $bg-check;
+            border: 1px;
+            border-color: transparent;
+            animation: fade-in-opacity 350ms ease-in-out;
+        }
+
+        // Display checkmark sign in check circle after input is checked
+        &:checked + #{$root}__label #{$root}__span:after {
+            display: block;
+        }
+
+        &:checked + #{$root}__span:after {
+            display: block;
+        }
+    }
+    
+    &__item-warning {
+        justify-content: flex-start;
+        padding: 0 10px;
+        font-size: clamp(0.825rem, 4vw, 1.125rem);
+        
+        @include breakpoint('sm') {
+            padding: 0 24px;
+        } 
+    }
+    
+    &__item-warning-icon {
+        font-size: 1.5rem;
+        color: $c-blue-bright;
+        margin-right: 10px;
+    }
+    
+    &__label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        padding-left: 35px;
+        height: 100%;
+        cursor: pointer;
+        user-select: none;
+        transition: color 250ms ease-in;
+    }
+    
+    &__label-text {
+        position: relative;
+        transition: color 250ms ease-in;
+        color: $c-text;
+        margin-left: 17px;
+        font-size: clamp(0.825rem, 4vw, 1.125rem);
+
+        // line throught for todo__item-input:checked
+        &::after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: $c-blue-grayish-light;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 350ms ease-in;
+        }
+    }
+    
+    &__span {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border: 1px solid $c-blue-grayish-very-light;
+        border-radius: 50%;       
+        transform: translateY(-50%);
+        transition: border 500ms;
+    
+        // checkmark sign
+        &::after {
+            display: none;
+            position: absolute;
+            content: "";
+            left: 10px;
+            top: 7px;
+            width: 4px;
+            height: 7px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    
+        //check circle border
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: calc(100% - 1px);
+            height: calc(100% - 1px);
+            border: double 1px transparent;
+            border-radius: 50%;
+            background-image: linear-gradient($c-white, $c-white), 
+                                linear-gradient(to right, $c-blue-grayish-very-light, $c-blue-grayish-very-light);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    }
+    
+    &__deleteBtn {
+        background: none;
+        border: none;
+        width: 50px;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        pointer-events: none;
+        font-size: 1.1rem;
+        transition: color 250ms ease-in,
+                    opacity 200ms ease-in;
+    
+        &:hover {
+            color: $c-red;
+        }
+    }
+    
+    &__deleteBtn-icon {
+        pointer-events: none;
+    }
+}
