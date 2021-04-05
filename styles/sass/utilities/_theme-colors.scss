@@ -1,0 +1,21 @@
+body[data-theme="light"] {
+    --c-bg: hsl(0, 0%, 100%);
+    --c-bg-list: hsl(0, 0%, 98%);
+    --c-text: hsl(235, 19%, 35%);
+    --c-blue-grayish-very-light: hsl(236, 33%, 92%);
+    --c-blue-grayish-light: hsl(233, 11%, 84%);
+    --c-blue-grayish-very-dark: hsl(235, 19%, 35%);
+    --c-blue-grayish-dark: hsl(236, 9%, 61%);
+    --c-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+
+body[data-theme="dark"] {
+    --c-bg: hsl(235, 24%, 19%);
+    --c-bg-list: hsl(235, 21%, 11%);
+    --c-text: hsl(234, 39%, 85%);
+    --c-blue-grayish-very-light: hsl(237, 14%, 26%);
+    --c-blue-grayish-light: hsl(233, 14%, 27%);
+    --c-blue-grayish-very-dark: hsl(237, 14%, 26%);
+    --c-blue-grayish-dark: hsl(235, 16%, 43%);
+    --c-box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
