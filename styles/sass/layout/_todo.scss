@@ -1,0 +1,131 @@
+.todo {
+    $root: &;
+    max-width: 540px;
+    margin: 0 auto;
+
+    &__form {
+        position: relative;
+        margin-bottom: 30px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 24px;
+            width: 24px;
+            height: 24px;
+            border: 1px solid $c-blue-grayish-very-light;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: border 1s;
+        }
+    }
+
+    &__form-input {
+        width: 100%;
+        height: 48px;
+        padding: 10px 5px 9px 74px;
+        border-right: none;
+        background: $c-white;
+        border-radius: 5px;
+        border: none;
+        font-family: $ff-primary;
+        font-size: clamp(0.8125rem, 3vw, 1.125rem);
+        color: $c-text;
+        transition: background 1s;
+
+        @include breakpoint('sm') {
+            height: 64px;
+        }
+    }
+    
+    &__wrapper {
+        background: $c-white;
+        border-radius: 5px;
+        box-shadow: $c-box-shadow;
+        overflow: hidden;
+        transition: background 1s;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 24px;
+        font-size: 0.825rem;
+        color: $c-blue-grayish-dark;
+        
+        @include breakpoint('sm') {
+            font-size: 0.875rem;
+        }
+    }
+
+    &__menu-tabs-desktop {
+        display: none;
+
+        @include breakpoint('sm') {
+            display: flex;
+        }       
+    }
+
+    &__menu-tabs-item {
+        font-family: $ff-primary;
+        font-weight: 700;
+        color: $c-blue-grayish-dark;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 250ms ease-in;
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            font-weight: 700;
+            color: $c-text;
+        }
+
+        &.active {
+            color: $c-blue-bright;
+        }
+    }
+
+    &__menu-tabs-mobile {
+        display: flex;
+        width: 100%;
+        height: 48px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background: $c-white;
+        color: $c-blue-grayish-dark;
+        margin-top: 16px;
+
+        @include breakpoint('sm') {
+            display: none;
+        }
+    }
+
+    &__menu-clear {
+        background: none;
+        border: none;
+        font-family: $ff-primary;
+        font-size: 0.875rem;
+        color: $c-blue-grayish-dark;
+        cursor: pointer;
+        transition: color 250ms ease-in;
+
+        &:hover {
+            color: $c-text;
+        }
+    }
+
+    &__instruction {
+        text-align: center;
+        margin-top: 48px;
+        color: $c-blue-grayish-dark;
+        font-size: 0.875rem;
+    }
+
+}
