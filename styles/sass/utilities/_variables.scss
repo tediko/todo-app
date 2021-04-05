@@ -1,0 +1,24 @@
+/* Colors */
+$c-white: var(--c-bg);
+$c-gray-light: var(--c-bg-list);
+$c-blue-grayish-very-light: var(--c-blue-grayish-very-light);
+$c-blue-grayish-light: var(--c-blue-grayish-light);
+$c-blue-grayish-dark: var(--c-blue-grayish-dark);
+$c-blue-grayish-very-dark: var(--c-blue-grayish-very-dark);
+$c-text: var(--c-text);
+$c-box-shadow: var(--c-box-shadow);
+$c-blue-bright: hsl(220, 98%, 61%);
+$c-red: #FF4136;
+$c-green: #2ECC40;
+
+$bg-check: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+/* Fonts */
+$ff-primary: 'Josefin Sans', sans-serif;
+
+/* Media query breakpoints */
+$breakpoints: (
+    'sm': 481px,
+    'md': 769px,
+    'lg': 1025px
+)
