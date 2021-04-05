@@ -1,0 +1,21 @@
+.background {
+    $root: &;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    
+    &__img {
+        position: absolute;
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s;
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
