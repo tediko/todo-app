@@ -30,6 +30,34 @@
     </button>
   </header>
 
+  <!-- Todo aplication -->
+  <main class="todo">
+    <form action="" class="todo__form" data-form>
+      <input type="text" class="todo__form-input" data-input placeholder="Create a new todo...">
+    </form>
+    <div class="todo__wrapper">
+      <ul class="todo__list" data-list></ul>
+      <div class="todo__menu">
+        <span class="todo__menu-counter" data-counter>5 items left</span>
+        <!-- Desktop menu tabs -->
+        <div class="todo__menu-tabs-desktop">
+          <button class="todo__menu-tabs-item active" data-tabs="all" aria-label="Display all todos">All</button>
+          <button class="todo__menu-tabs-item" data-tabs="active" aria-label="Display active todos">Active</button>
+          <button class="todo__menu-tabs-item" data-tabs="completed" aria-label="Display completed todos">Completed</button>
+        </div>
+        <button class="todo__menu-clear" data-clear>Clear Completed</button>
+      </div>
+    </div>
+    <!-- Mobile menu tabs -->
+    <div class="todo__menu-tabs-mobile">
+      <button class="todo__menu-tabs-item active" data-tabs="all" aria-label="Display all todos">All</button>
+      <button class="todo__menu-tabs-item" data-tabs="active" aria-label="Display active todos">Active</button>
+      <button class="todo__menu-tabs-item" data-tabs="completed" aria-label="Display completed todos">Completed</button>
+    </div>
+    <p class="todo__instruction">Drag and drop to reorder list</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
   <script type="module" src="js/app.js" ></script>
 </body>
 </html>
