@@ -1,7 +1,5 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
 import { default as themeSwitcher } from './theme.js';
-/* import Sortable from '../node_modules/sortablejs/modular/sortable.esm.js'; */
-import Sortable from 'sortablejs';
 
 // Selectors
 const todoForm = document.querySelector('[data-form]');
