@@ -448,6 +448,7 @@ body {
   background: var(--c-bg);
   color: var(--c-blue-grayish-dark);
   margin-top: 16px;
+  transition: color 250ms ease-in, background 1s;
 }
 
 @media (min-width: 481px) {
