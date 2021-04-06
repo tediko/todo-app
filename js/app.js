@@ -1,5 +1,6 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
 import { default as themeSwitcher } from './theme.js';
+import { Toast } from './toast.js';
 
 // Selectors
 const todoForm = document.querySelector('[data-form]');
@@ -269,5 +270,10 @@ tabs.forEach(tab => {
         displayTodos(activeTab);
     })
 })
+document.addEventListener('DOMContentLoaded', () => Toast.init());
+document.addEventListener('click', (event) => {
+    let isToast = event.target.dataset.toast;
+    isToast == 'true' ? Toast.clear() : null;
+});
 
 displayTodos();
