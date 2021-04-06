@@ -315,6 +315,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   visibility: hidden;
   opacity: 0;
+  cursor: pointer;
   transition: opacity 200ms, top 200ms, visibility 200ms;
 }
 
@@ -330,10 +331,18 @@ body {
   color: #fff;
 }
 
+.toast--success:hover {
+  background: #ade26c;
+}
+
 .toast--error {
   background: #e52d27;
   border-color: rgba(0, 0, 0, 0.1);
   color: #fff;
+}
+
+.toast--error:hover {
+  background: #e8433e;
 }
 
 .toast__icon {

@@ -16,6 +16,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     visibility: hidden;
     opacity: 0;
+    cursor: pointer;
     transition: opacity 200ms, top 200ms, visibility 200ms;
     
 
@@ -29,12 +30,20 @@
         background: $c-toast-success;
         border-color: rgba(0, 0, 0, 0.1);
         color: $c-toast-text;
+
+        &:hover {
+            background: lighten($c-toast-success, 2%);
+        }
     }
 
     &--error {
         background: $c-toast-error;
         border-color: rgba(0, 0, 0, 0.1);
         color: $c-toast-text;
+
+        &:hover {
+            background: lighten($c-toast-error, 5%);
+        }
     }
 
     &__icon {
