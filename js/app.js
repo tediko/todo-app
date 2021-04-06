@@ -19,8 +19,8 @@ let tabOpen = 'all';
 const addTodo = (event) => {
     event.preventDefault();
     let inputValue = todoInput.value;
-    if (!inputValue) return;
-    
+    if (!formValidation(inputValue)) return;
+
     let todo = {
         text: inputValue,
         done: false,
@@ -224,6 +224,20 @@ const checkIfCompleted = (tab) => {
         renderWhileEmpty(tab);
     } else if (activeResult == 0 && tab == 'active') {
         renderWhileEmpty(tab);
+    }
+}
+// Form validation. Checks if input is empty or is longer than X charackters.
+const formValidation = (value) => {
+    if (!value) {
+        Toast.show(`Error! Todo cannot be blank.`, 'error');
+        return false;
+    } else if (value.length >= 35) {
+        Toast.show(`Error! Maximum 35 characters.`, 'error');
+        todoForm.reset();
+        return false;
+    } else {
+        Toast.show('Success! Todo has been added.', 'success');
+        return true;
     }
 }
 
