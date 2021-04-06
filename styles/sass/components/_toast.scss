@@ -8,10 +8,10 @@
     width: calc(100% - 48px); // -48px to keep body padding
     max-width: 540px;
     padding: 13px;
-    background: #ccc;
-    color: #333;
+    background: $c-toast-default;
+    color: #000;
     font-family: $ff-secondary;
-    border: 1px solid #aaa;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     visibility: hidden;
@@ -26,15 +26,15 @@
     }
 
     &--success {
-        background: #a8e063;
-        border-color: rgba(0, 0, 0, 0.10);
-        color: #fff;
+        background: $c-toast-success;
+        border-color: rgba(0, 0, 0, 0.1);
+        color: $c-toast-text;
     }
 
     &--error {
-        background: #e52d27;
-        border-color: rgba(0, 0, 0, 0.10);
-        color: #fff;
+        background: $c-toast-error;
+        border-color: rgba(0, 0, 0, 0.1);
+        color: $c-toast-text;
     }
 
     &__icon {
