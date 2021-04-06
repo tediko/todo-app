@@ -69,7 +69,6 @@ const removeAllTodos = (list) => {
 const removeCompletedTodos = () => {
     let deletedItem;
     let animation;
-    
     // _ indicates the first parameter is not to be used.
     // works like forEach but from right to left.
     todos.reduceRight((_, todo, index) => {
@@ -85,7 +84,8 @@ const removeCompletedTodos = () => {
             animation;
         }
     }, null);
-
+    
+    Toast.show(`Success! Todos has been removed.`, 'success');
     showActiveTab(tabs[0]);
     localStorage.setItem('todos', JSON.stringify(todos));
     if (tabOpen == 'completed') {
@@ -119,6 +119,7 @@ const removeTodo = (event) => {
     if (!event.target.matches('button')) return;
     event.preventDefault();
     disableAllDeleteButtons();
+    Toast.show(`Success! Todo has been removed.`, 'success');
 
     let index = event.target.dataset.index;
     let deletedItem = todoList.childNodes[index];
