@@ -8,6 +8,10 @@ $c-blue-grayish-very-dark: var(--c-blue-grayish-very-dark);
 $c-text: var(--c-text);
 $c-box-shadow: var(--c-box-shadow);
 $c-blue-bright: hsl(220, 98%, 61%);
+$c-toast-default: #EAEAEA;
+$c-toast-success: #a8e063;
+$c-toast-error: #e52d27;
+$c-toast-text: #fff;
 $c-red: #FF4136;
 $c-green: #2ECC40;
 
@@ -15,6 +19,7 @@ $bg-check: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
 /* Fonts */
 $ff-primary: 'Josefin Sans', sans-serif;
+$ff-secondary: 'Lexend', sans-serif;
 
 /* Media query breakpoints */
 $breakpoints: (
