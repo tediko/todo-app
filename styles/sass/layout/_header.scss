@@ -2,6 +2,7 @@
     $root: &;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 540px;
     margin: 0 auto 48px auto;
 
@@ -17,6 +18,11 @@
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
+
+        &:focus {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+        }
     }
 
     &__switch-icon {
