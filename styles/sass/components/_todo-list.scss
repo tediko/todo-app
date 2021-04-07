@@ -43,12 +43,12 @@
         // styles while todo is completed
         &.completed {
             // label text line throught
-            #{$root}__labelText::after {
+            #{$root}__label-text::after {
                 width: 100%;
                 opacity: 1;
             }
             // label text color
-            #{$root}__labelText {
+            #{$root}__label-text {
                 color: $c-blue-grayish-light;
             }
         }
@@ -64,6 +64,12 @@
         cursor: pointer;
         height: 0;
         width: 0;
+
+        // Add outline on span while input is focused.
+        &:focus + #{$root}__label #{$root}__span {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+        }
     
         // change check cricle background while input is checked
         &:checked + #{$root}__label #{$root}__span {
@@ -182,15 +188,22 @@
     &__deleteBtn {
         background: none;
         border: none;
-        width: 50px;
-        height: 100%;
+        width: 25px;
+        height: 50%;
         opacity: 0;
         cursor: pointer;
         pointer-events: none;
         font-size: 1.1rem;
         transition: color 250ms ease-in,
                     opacity 200ms ease-in;
-    
+
+        &:focus {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+            opacity: 1;
+            pointer-events: all;
+        }
+        
         &:hover {
             color: $c-red;
         }

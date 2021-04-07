@@ -149,12 +149,12 @@ body {
   display: none;
 }
 
-.todo__item.completed .todo__labelText::after {
+.todo__item.completed .todo__label-text::after {
   width: 100%;
   opacity: 1;
 }
 
-.todo__item.completed .todo__labelText {
+.todo__item.completed .todo__label-text {
   color: var(--c-blue-grayish-light);
 }
 
@@ -168,6 +168,11 @@ body {
   cursor: pointer;
   height: 0;
   width: 0;
+}
+
+.todo__item-input:focus + .todo__label .todo__span {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
 }
 
 .todo__item-input:checked + .todo__label .todo__span {
@@ -280,13 +285,20 @@ body {
 .todo__deleteBtn {
   background: none;
   border: none;
-  width: 50px;
-  height: 100%;
+  width: 25px;
+  height: 50%;
   opacity: 0;
   cursor: pointer;
   pointer-events: none;
   font-size: 1.1rem;
   transition: color 250ms ease-in, opacity 200ms ease-in;
+}
+
+.todo__deleteBtn:focus {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .todo__deleteBtn:hover {
@@ -374,6 +386,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 540px;
   margin: 0 auto 48px auto;
 }
@@ -390,6 +403,11 @@ body {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.header__switch:focus {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
 }
 
 .header__switch-icon {
@@ -437,6 +455,11 @@ body {
   font-size: clamp(0.8125rem, 3vw, 1.125rem);
   color: var(--c-text);
   transition: background 1s;
+}
+
+.todo__form-input:focus {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
 }
 
 @media (min-width: 481px) {
@@ -487,6 +510,11 @@ body {
   transition: color 250ms ease-in;
 }
 
+.todo__menu-tabs-item:focus {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
+}
+
 .todo__menu-tabs-item:not(:last-child) {
   margin-right: 16px;
 }
@@ -527,6 +555,11 @@ body {
   color: var(--c-blue-grayish-dark);
   cursor: pointer;
   transition: color 250ms ease-in;
+}
+
+.todo__menu-clear:focus {
+  outline: 2px dotted var(--c-text);
+  outline-offset: 2px;
 }
 
 .todo__menu-clear:hover {
