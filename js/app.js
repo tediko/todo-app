@@ -267,6 +267,7 @@ let sortable = new Sortable(todoList, {
             })
         })
         localStorage.setItem("todos", JSON.stringify(storageAfter));
+        displayTodos();
     }
 });
 
