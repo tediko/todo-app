@@ -1,6 +1,7 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
 import { default as themeSwitcher } from './theme.js';
 import { Toast } from './toast.js';
+new themeSwitcher();
 
 // Selectors
 const todoForm = document.querySelector('[data-form]');

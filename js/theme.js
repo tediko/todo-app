@@ -1,41 +1,62 @@
-const body = document.querySelector('[data-theme]');
-const themeSwitch = document.querySelector('[data-theme-switch]');
-const icons = document.querySelectorAll('[data-theme-icon]');
-const backgrounds = document.querySelectorAll('[data-theme-img]');
+export default class themeSwitcher {
+    constructor() {
+        if (!this.vars()) return false;
+        this.setupEvents();
+    }
 
-const lightTheme = 'light';
-const darkTheme = 'dark';
+    vars() {
+        this.selectors = {
+            body: 'data-theme',
+            themeSwitch: 'data-theme-switch',
+            icons: 'data-theme-icon',
+            backgrounds: 'data-theme-img'
+        };
+        
+        this.body = document.querySelector(`[${this.selectors.body}]`);
+        this.themeSwitch = document.querySelector(`[${this.selectors.themeSwitch}]`);
+        this.icons = document.querySelectorAll(`[${this.selectors.icons}]`);
+        this.backgrounds = document.querySelectorAll(`[${this.selectors.backgrounds}]`);
 
-const themeToggle = () => {
-    let activeTheme = body.dataset.theme;
-    
-    activeTheme == lightTheme ?
-        body.dataset.theme = darkTheme :
-        body.dataset.theme = lightTheme;
+        if (!this.body || !this.themeSwitch || !this.icons || !this.backgrounds) return false;
 
-    iconToggle(icons, activeTheme);
-    backgroundToggle(backgrounds, activeTheme);
+        this.lightTheme = 'light';
+        this.darkTheme = 'dark';
+        console.log('hello');
+        return true;
+    }
+
+    setupEvents() {
+        this.themeSwitch.addEventListener('click', () => this.themeToggle());
+    }
+
+    themeToggle() {
+        this.activeTheme = this.body.dataset.theme;
+
+        this.activeTheme == this.lightTheme ? 
+            this.body.dataset.theme = this.darkTheme :
+            this.body.dataset.theme = this.lightTheme;
+
+        this.iconToggle(this.icons, this.activeTheme);
+        this.backgroundToggle(this.backgrounds, this.activeTheme);
+    }
+
+    iconToggle(icons, activeTheme) {
+        this.icons.forEach(icon => {
+            this.activeIconTheme = icon.dataset.themeIcon;
+
+            this.activeIconTheme != this.activeTheme ?
+                icon.classList.add('active') :
+                icon.classList.remove('active');
+        })
+    }
+
+    backgroundToggle(backgrounds, activeTheme) {
+        this.backgrounds.forEach(bg => {
+            this.activeBackgroundTheme = bg.dataset.themeImg;
+
+            this.activeBackgroundTheme != this.activeTheme ?
+                bg.classList.add('active') :
+                bg.classList.remove('active');
+        })
+    }
 }
-
-const iconToggle = (icons, activeTheme) => {
-    icons.forEach(icon => {
-        let activeIconTheme = icon.dataset.themeIcon;
-
-        activeIconTheme != activeTheme ?
-            icon.classList.add('active') :
-            icon.classList.remove('active');
-    })
-}
-
-const backgroundToggle = (backgrounds, activeTheme) => {
-    backgrounds.forEach(bg => {
-        let activeBackgroundTheme = bg.dataset.themeImg;
-
-        activeBackgroundTheme != activeTheme ?
-            bg.classList.add('active') :
-            bg.classList.remove('active');
-
-    })
-}
-
-export default themeSwitch.addEventListener('click', themeToggle);
