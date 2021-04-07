@@ -21,7 +21,6 @@ export default class themeSwitcher {
 
         this.lightTheme = 'light';
         this.darkTheme = 'dark';
-        console.log('hello');
         return true;
     }
 
