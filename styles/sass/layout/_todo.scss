@@ -35,6 +35,11 @@
         color: $c-text;
         transition: background 1s;
 
+        &:focus {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+        }
+
         @include breakpoint('sm') {
             height: 64px;
         }
@@ -77,6 +82,11 @@
         cursor: pointer;
         transition: color 250ms ease-in;
 
+        &:focus {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+        }
+
         &:not(:last-child) {
             margin-right: 16px;
         }
@@ -117,6 +127,11 @@
         color: $c-blue-grayish-dark;
         cursor: pointer;
         transition: color 250ms ease-in;
+
+        &:focus {
+            outline: 2px dotted $c-text;
+            outline-offset: 2px;
+        }
 
         &:hover {
             color: $c-text;
