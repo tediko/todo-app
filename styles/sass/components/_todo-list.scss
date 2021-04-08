@@ -89,7 +89,7 @@
         }
     }
     
-    &__item-warning {
+    &__item-info {
         justify-content: flex-start;
         padding: 0 10px;
         font-size: clamp(0.825rem, 4vw, 1.125rem);
@@ -99,7 +99,7 @@
         } 
     }
     
-    &__item-warning-icon {
+    &__item-info-icon {
         font-size: 1.5rem;
         color: $c-blue-bright;
         margin-right: 10px;
