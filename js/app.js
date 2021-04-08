@@ -1,7 +1,8 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
-import { default as themeSwitcher } from './theme.js';
-import { Toast } from './toast.js';
-new themeSwitcher();
+import { default as ThemeSwitcher } from './theme.js';
+import { default as Toast } from './toast.js';
+const toast = new Toast();
+new ThemeSwitcher();
 
 // Selectors
 const todoForm = document.querySelector('[data-form]');
@@ -86,7 +87,7 @@ const removeCompletedTodos = () => {
         }
     }, null);
     
-    Toast.show(`Success! Todos has been removed.`, 'success');
+    toast.show(`Success! Todos has been removed.`, 'success');
     showActiveTab(tabs[0]);
     localStorage.setItem('todos', JSON.stringify(todos));
     if (tabOpen == 'completed') {
@@ -120,7 +121,7 @@ const removeTodo = (event) => {
     if (!event.target.matches('button')) return;
     event.preventDefault();
     disableAllDeleteButtons();
-    Toast.show(`Success! Todo has been removed.`, 'success');
+    toast.show(`Success! Todo has been removed.`, 'success');
 
     let index = event.target.dataset.index;
     let deletedItem = todoList.childNodes[index];
@@ -231,14 +232,14 @@ const checkIfCompleted = (tab) => {
 // Form validation. Checks if input is empty or is longer than X charackters.
 const formValidation = (value) => {
     if (!value) {
-        Toast.show(`Error! Todo cannot be blank.`, 'error');
+        toast.show(`Error! Todo cannot be blank.`, 'error');
         return false;
     } else if (value.length >= 35) {
-        Toast.show(`Error! Maximum 35 characters.`, 'error');
+        toast.show(`Error! Maximum 35 characters.`, 'error');
         todoForm.reset();
         return false;
     } else {
-        Toast.show('Success! Todo has been added.', 'success');
+        toast.show('Success! Todo has been added.', 'success');
         return true;
     }
 }
@@ -287,10 +288,5 @@ tabs.forEach(tab => {
         displayTodos(activeTab);
     })
 })
-document.addEventListener('DOMContentLoaded', () => Toast.init());
-document.addEventListener('click', (event) => {
-    let isToast = event.target.dataset.toast;
-    isToast == 'true' ? Toast.clear() : null;
-});
 
 displayTodos();
