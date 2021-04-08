@@ -36,17 +36,5 @@ export default class themeSwitcher {
                 localStorage.setItem('theme', JSON.stringify(this.darkTheme))) :
             (this.body.dataset.theme = this.lightTheme,
                 localStorage.setItem('theme', JSON.stringify(this.lightTheme)));
-
-        this.backgroundToggle(this.backgrounds, this.activeTheme);
-    }
-
-    backgroundToggle(backgrounds, activeTheme) {
-        this.backgrounds.forEach(bg => {
-            this.activeBackgroundTheme = bg.dataset.themeImg;
-
-            this.activeBackgroundTheme != this.activeTheme ?
-                bg.classList.add('active') :
-                bg.classList.remove('active');
-        })
     }
 }
