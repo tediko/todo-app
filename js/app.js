@@ -34,6 +34,7 @@ const addTodo = (event) => {
     
     todoForm.reset();
     showActiveTab(tabs[0]);
+    tabOpen = 'all';
     displayTodos();
     let elementToAnimate = todoList.lastChild;
     addAnimation(elementToAnimate, animationFadeIn, {
