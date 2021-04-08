@@ -26,11 +26,35 @@
     }
 
     &__switch-icon {
-        display: none;
-        animation: fade-in-opacity 1s forwards;
+        &--sun,
+        &--mooon {
+            position: absolute;
+        }
 
-        &.active {
-            display: block;
+        &--sun {
+            &::before {
+                opacity: 0;
+                transition: opacity 300ms ease-in;
+            }
+        }
+
+        body[data-theme="dark"] &--sun {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &--moon {
+            &::before {
+                opacity: 0;
+                transition: opacity 300ms ease-in;
+            }
+        }
+
+        body[data-theme="light"] &--moon {
+            &::before {
+                opacity: 1;
+            }
         }
     }
 }

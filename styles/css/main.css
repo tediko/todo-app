@@ -410,13 +410,26 @@ body {
   outline-offset: 2px;
 }
 
-.header__switch-icon {
-  display: none;
-  animation: fade-in-opacity 1s forwards;
+.header__switch-icon--sun, .header__switch-icon--mooon {
+  position: absolute;
 }
 
-.header__switch-icon.active {
-  display: block;
+.header__switch-icon--sun::before {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+body[data-theme="dark"] .header__switch-icon--sun::before {
+  opacity: 1;
+}
+
+.header__switch-icon--moon::before {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+body[data-theme="light"] .header__switch-icon--moon::before {
+  opacity: 1;
 }
 
 .todo {
