@@ -357,6 +357,16 @@ body {
   background: #e8433e;
 }
 
+.toast--info {
+  background: #3a7bfd;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.toast--info:hover {
+  background: #538cfd;
+}
+
 .toast__icon {
   font-size: 1.5rem;
   margin-right: 13px;
