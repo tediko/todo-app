@@ -71,6 +71,9 @@ const removeAllTodos = (list) => {
 const removeCompletedTodos = () => {
     let deletedItem;
     let animation;
+    
+    if (validateCompletedTodos()) return;
+
     // _ indicates the first parameter is not to be used.
     // works like forEach but from right to left.
     todos.reduceRight((_, todo, index) => {
@@ -87,7 +90,6 @@ const removeCompletedTodos = () => {
         }
     }, null);
     
-    toast.show(`Success! Todos has been removed.`, 'success');
     showActiveTab(tabs[0]);
     localStorage.setItem('todos', JSON.stringify(todos));
     if (tabOpen == 'completed') {
@@ -244,6 +246,29 @@ const formValidation = (value) => {
     }
 }
 
+// Fn to display right toast when todos are completed or not. 
+const validateCompletedTodos = () => {
+    let result = 0;
+  
+    todos.forEach(todo => {
+      todo.done ? result++ : null;
+    })
+  
+    if (result === 0) {
+        toast.show(`Upss.. No completed todo to clear`, 'info');
+        return true;
+    } else if (tabOpen == 'active' && result != 0) {
+        toast.show(`Success! Todos has been removed.`, 'success');
+        return false; 
+    } else if (tabOpen == 'active') {
+        toast.show(`Upss.. No completed todo to clear`, 'info');
+        return true; 
+    } else {
+        toast.show(`Success! Todos has been removed.`, 'success');
+        return false;
+    }
+}
+
 // Sortable
 let sortable = new Sortable(todoList, {
     animation: 150,
@@ -282,8 +307,8 @@ tabs.forEach(tab => {
     tab.addEventListener('click', (event) => {
         let activeTab = event.target.dataset.tabs;
         tabOpen = activeTab;
-        activeTab == 'active' ? clearCompleted.removeEventListener('click', removeCompletedTodos) : 
-            clearCompleted.addEventListener('click', removeCompletedTodos);
+        /* activeTab == 'active' ? clearCompleted.removeEventListener('click', removeCompletedTodos) : 
+            clearCompleted.addEventListener('click', removeCompletedTodos); */
         showActiveTab(tab);
         displayTodos(activeTab);
     })
