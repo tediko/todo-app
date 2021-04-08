@@ -8,16 +8,14 @@ export default class themeSwitcher {
         this.selectors = {
             body: 'data-theme',
             themeSwitch: 'data-theme-switch',
-            icons: 'data-theme-icon',
             backgrounds: 'data-theme-img'
         };
         
         this.body = document.querySelector(`[${this.selectors.body}]`);
         this.themeSwitch = document.querySelector(`[${this.selectors.themeSwitch}]`);
-        this.icons = document.querySelectorAll(`[${this.selectors.icons}]`);
         this.backgrounds = document.querySelectorAll(`[${this.selectors.backgrounds}]`);
 
-        if (!this.body || !this.themeSwitch || !this.icons || !this.backgrounds) return false;
+        if (!this.body || !this.themeSwitch || !this.backgrounds) return false;
 
         this.theme = JSON.parse(localStorage.getItem('theme')) || lightTheme;
         this.lightTheme = 'light';
