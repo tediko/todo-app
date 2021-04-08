@@ -307,8 +307,6 @@ tabs.forEach(tab => {
     tab.addEventListener('click', (event) => {
         let activeTab = event.target.dataset.tabs;
         tabOpen = activeTab;
-        /* activeTab == 'active' ? clearCompleted.removeEventListener('click', removeCompletedTodos) : 
-            clearCompleted.addEventListener('click', removeCompletedTodos); */
         showActiveTab(tab);
         displayTodos(activeTab);
     })
