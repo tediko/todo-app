@@ -205,9 +205,9 @@ const renderWhileEmpty = (tab) => {
     const documentFragment = new DocumentFragment();
 
     const listItem = document.createElement('li');
-    listItem.classList.add('todo__item', 'todo__item-warning');
+    listItem.classList.add('todo__item', 'todo__item-info');
     
-    listItem.innerHTML = `<i class="i-warning todo__item-warning-icon"></i> ${tab == 'completed' ?
+    listItem.innerHTML = `<i class="i-info todo__item-info-icon"></i> ${tab == 'completed' ?
         'You have no completed todo to display!' :
         'You have no active todo to display!'}`;
 
