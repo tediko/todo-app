@@ -19,12 +19,14 @@ export default class themeSwitcher {
 
         if (!this.body || !this.themeSwitch || !this.icons || !this.backgrounds) return false;
 
+        this.theme = JSON.parse(localStorage.getItem('theme')) || lightTheme;
         this.lightTheme = 'light';
         this.darkTheme = 'dark';
         return true;
     }
 
     setupEvents() {
+        this.body.dataset.theme = this.theme;
         this.themeSwitch.addEventListener('click', () => this.themeToggle());
     }
 
@@ -32,21 +34,12 @@ export default class themeSwitcher {
         this.activeTheme = this.body.dataset.theme;
 
         this.activeTheme == this.lightTheme ? 
-            this.body.dataset.theme = this.darkTheme :
-            this.body.dataset.theme = this.lightTheme;
+            (this.body.dataset.theme = this.darkTheme,
+                localStorage.setItem('theme', JSON.stringify(this.darkTheme))) :
+            (this.body.dataset.theme = this.lightTheme,
+                localStorage.setItem('theme', JSON.stringify(this.lightTheme)));
 
-        this.iconToggle(this.icons, this.activeTheme);
         this.backgroundToggle(this.backgrounds, this.activeTheme);
-    }
-
-    iconToggle(icons, activeTheme) {
-        this.icons.forEach(icon => {
-            this.activeIconTheme = icon.dataset.themeIcon;
-
-            this.activeIconTheme != this.activeTheme ?
-                icon.classList.add('active') :
-                icon.classList.remove('active');
-        })
     }
 
     backgroundToggle(backgrounds, activeTheme) {
