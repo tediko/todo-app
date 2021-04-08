@@ -234,8 +234,9 @@ const checkIfCompleted = (tab) => {
 }
 // Form validation. Checks if input is empty or is longer than X charackters.
 const formValidation = (value) => {
-    if (!value) {
+    if (!value.trim()) {
         toast.show(`Error! Todo cannot be blank.`, 'error');
+        todoForm.reset();
         return false;
     } else if (value.length >= 35) {
         toast.show(`Error! Maximum 35 characters.`, 'error');
