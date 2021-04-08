@@ -65,7 +65,7 @@ i {
   content: "\f058";
 }
 
-.i-warning:before {
+.i-info:before {
   content: "\f06a";
 }
 
@@ -190,19 +190,19 @@ body {
   display: block;
 }
 
-.todo__item-warning {
+.todo__item-info {
   justify-content: flex-start;
   padding: 0 10px;
   font-size: clamp(0.825rem, 4vw, 1.125rem);
 }
 
 @media (min-width: 481px) {
-  .todo__item-warning {
+  .todo__item-info {
     padding: 0 24px;
   }
 }
 
-.todo__item-warning-icon {
+.todo__item-info-icon {
   font-size: 1.5rem;
   color: #3a7bfd;
   margin-right: 10px;
