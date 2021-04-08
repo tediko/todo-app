@@ -379,7 +379,19 @@ body {
   transition: opacity 1s;
 }
 
-.background__img.active {
+.background__img--light {
+  opacity: 0;
+}
+
+body[data-theme="light"] .background__img--light {
+  opacity: 1;
+}
+
+.background__img--dark {
+  opacity: 0;
+}
+
+body[data-theme="dark"] .background__img--dark {
   opacity: 1;
 }
 

@@ -14,7 +14,19 @@
         opacity: 0;
         transition: opacity 1s;
 
-        &.active {
+        &--light {
+            opacity: 0;
+        }
+
+        body[data-theme="light"] &--light {
+            opacity: 1;
+        }
+
+        &--dark {
+            opacity: 0;
+        }
+
+        body[data-theme="dark"] &--dark {
             opacity: 1;
         }
     }
