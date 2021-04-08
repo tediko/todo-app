@@ -46,6 +46,16 @@
         }
     }
 
+    &--info {
+        background: $c-toast-info;
+        border-color: rgba(0, 0, 0, 0.1);
+        color: $c-toast-text;
+
+        &:hover {
+            background: lighten($c-toast-info, 5%);
+        }
+    }
+
     &__icon {
         font-size: 1.5rem;
         margin-right: 13px;
