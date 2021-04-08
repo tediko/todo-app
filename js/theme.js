@@ -1,4 +1,4 @@
-export default class themeSwitcher {
+export default class ThemeSwitcher {
     constructor() {
         if (!this.vars()) return false;
         this.setupEvents();
