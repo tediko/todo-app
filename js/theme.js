@@ -17,9 +17,9 @@ export default class themeSwitcher {
 
         if (!this.body || !this.themeSwitch || !this.backgrounds) return false;
 
-        this.theme = JSON.parse(localStorage.getItem('theme')) || this.lightTheme;
         this.lightTheme = 'light';
         this.darkTheme = 'dark';
+        this.theme = JSON.parse(localStorage.getItem('theme')) || this.lightTheme;
         return true;
     }
 
