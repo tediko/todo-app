@@ -1,0 +1,18 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    color: $c-text;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    padding: 10px;
+    font-family: $ff-primary;
+    text-align: center; 
+    a {
+        color: $c-blue-bright;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}

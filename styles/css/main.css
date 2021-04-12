@@ -604,4 +604,24 @@ body[data-theme="light"] .header__switch-icon--moon::before {
   color: var(--c-blue-grayish-dark);
   font-size: 0.875rem;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  color: var(--c-text);
+  font-size: 0.8rem;
+  opacity: 0.5;
+  padding: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+}
+
+.footer a {
+  color: #3a7bfd;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=main.css.map */
