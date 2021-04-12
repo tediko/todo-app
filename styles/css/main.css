@@ -614,6 +614,7 @@ body[data-theme="light"] .header__switch-icon--moon::before {
   padding: 10px;
   font-family: "Josefin Sans", sans-serif;
   text-align: center;
+  transition: color 300ms ease-in;
 }
 
 .footer a {

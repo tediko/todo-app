@@ -7,6 +7,8 @@
     padding: 10px;
     font-family: $ff-primary;
     text-align: center; 
+    transition: color 300ms ease-in;
+    
     a {
         color: $c-blue-bright;
         text-decoration: none;
