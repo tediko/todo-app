@@ -603,6 +603,7 @@ body[data-theme="light"] .header__switch-icon--moon::before {
   margin-top: 48px;
   color: var(--c-blue-grayish-dark);
   font-size: 0.875rem;
+  transition: color 300ms ease-in;
 }
 
 .footer {
