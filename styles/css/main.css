@@ -311,14 +311,18 @@ body {
 
 .toast {
   position: fixed;
-  display: flex;
-  align-items: center;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 48px);
   max-width: 540px;
+}
+
+.toast__item {
+  display: flex;
+  align-items: center;
   padding: 13px;
+  margin-bottom: 10px;
   background: #EAEAEA;
   color: #000;
   font-family: "Lexend", sans-serif;
@@ -328,46 +332,39 @@ body {
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
-  transition: opacity 300ms, bottom 300ms, visibility 300ms;
 }
 
-.toast--visible {
-  bottom: 20px;
-  opacity: 1;
-  visibility: visible;
-}
-
-.toast--success {
+.toast__item--success {
   background: #a8e063;
   border-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 }
 
-.toast--success:hover {
+.toast__item--success:hover {
   background: #ade26c;
 }
 
-.toast--error {
+.toast__item--error {
   background: #e52d27;
   border-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 }
 
-.toast--error:hover {
+.toast__item--error:hover {
   background: #e8433e;
 }
 
-.toast--info {
+.toast__item--info {
   background: #3a7bfd;
   border-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 }
 
-.toast--info:hover {
+.toast__item--info:hover {
   background: #538cfd;
 }
 
-.toast__icon {
+.toast__item-icon {
   font-size: 1.5rem;
   margin-right: 13px;
 }
