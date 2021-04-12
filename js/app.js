@@ -1,6 +1,7 @@
 import { animationFadeIn, animationFadeOut, addAnimation } from './animations.js';
 import { default as ThemeSwitcher } from './theme.js';
 import { default as Toast } from './toast.js';
+import { sampleTodos } from './sampleTodos.js';
 const toast = new Toast();
 new ThemeSwitcher();
 
@@ -12,8 +13,8 @@ const todoList = document.querySelector('[data-list]');
 const itemsCounter = document.querySelector('[data-counter]');
 const tabs = document.querySelectorAll('[data-tabs]');
 const clearCompleted = document.querySelector('[data-clear]');
-
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
+console.log(sampleTodos);
+let todos = JSON.parse(localStorage.getItem('todos')) || localStorage.setItem('todos', JSON.stringify(sampleTodos));
 let tabOpen = 'all';
 
 
