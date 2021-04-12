@@ -1,3 +1,5 @@
+import { animationToastIn, animationToastOut, addAnimation } from './animations.js';
+
 export default class Toast {
     constructor() {
         if (!this.vars()) return false;
@@ -5,34 +7,67 @@ export default class Toast {
     }
 
     vars() {
-        this.hideTimeout = null;
+        this.index = 0;
         return true;
     }
 
     setupEvents() {
-        this.createToastElement();
-        this.toastEl.addEventListener('click', () => this.clear());
+        this.createToastWrapper();
+        this.toastWrapper.addEventListener('click', () => this.clear());
+    }
+
+    createToastWrapper() {
+        this.toastWrapper = document.createElement('div');
+        this.toastWrapper.className = 'toast';
+        document.body.appendChild(this.toastWrapper);
     }
 
     createToastElement() {
+        this.index++; 
+
         this.toastEl = document.createElement('div');
-        this.toastEl.className = "toast";
-        this.toastEl.setAttribute('data-toast', 'true');
-        document.body.appendChild(this.toastEl);
+        this.toastEl.className = "toast__item";
+        this.toastEl.setAttribute('data-toast', `${this.index}`)
+        this.toastWrapper.appendChild(this.toastEl);
+        
+        let element = document.querySelector(`[data-toast="${this.index}"]`);
+        this.anim(element);
+        
+        if (this.toastWrapper.childNodes.length > 2) {
+            this.toastWrapper.removeChild(this.toastWrapper.firstChild);
+        }
+
     }
 
-    show(message, state) {
-        clearTimeout(this.hideTimeout);
+    anim(element) {
+        let toastIn = addAnimation(element, animationToastIn, {
+            duration: 600,
+            fill: 'forwards'
+        }); 
+    
+        setTimeout(() => {
+            toastIn.cancel();
 
-        this.toastEl.className = `toast toast--visible toast--${state}`;
-        this.toastEl.innerHTML = `<i class="i-${state} toast__icon"></i> ${message}`;
-
-        this.hideTimeout = setTimeout(() => {
-            this.toastEl.classList.remove('toast--visible');
+            let toastOut = addAnimation(element, animationToastOut, {
+                duration: 600,
+                fill: 'forwards'
+            }); 
+            
+            toastOut.onfinish = () => {
+                element.remove();
+            }
+            
         }, 2000);
     }
 
+    show(message, state) {
+        this.createToastElement();
+
+        this.toastEl.className = `toast__item toast__item--${state}`;
+        this.toastEl.innerHTML = `<i class="i-${state} toast__item-icon"></i> ${message}`;
+    }
+
     clear() {
-        this.toastEl.classList.remove('toast--visible');
+        this.toastWrapper.removeChild(this.toastWrapper.firstChild);
     }
 }
