@@ -104,17 +104,13 @@ const removeCompletedTodos = () => {
 }
 
 // Fn to toggle done/undone on item after user click.
-const toggleDone = (event) => {
-    if (!event.target.matches('input')) return;
-
-    let index = event.target.dataset.index;
-    let checkbox = event.target;
-    let label = event.originalTarget.parentElement;
-
+const toggleDone = (item) => {
+    let checkbox = item.querySelector('input');
+    let index = checkbox.dataset.index;
+    
     todos[index].done = !todos[index].done;
-    checkbox.setAttribute('checked', 'true');
-    todos[index].done ? label.classList.add('completed') : label.classList.remove('completed');
-
+    todos[index].done ? item.classList.add('completed') : item.classList.remove('completed');
+    
     localStorage.setItem('todos', JSON.stringify(todos));
     countActiveTodos();
 }
@@ -165,9 +161,9 @@ const disableAllDeleteButtons = () => {
 
 // Fn to create todo list item elements
 const renderList = (todo, index) => {
-    const documentFragment = new DocumentFragment();
-    
-    const listItem = document.createElement('li');
+    let documentFragment = new DocumentFragment();
+
+    let listItem = document.createElement('li');
     listItem.classList.add('todo__item');
     listItem.setAttribute('id', `${todo.id}`);
     todo.done ? listItem.classList.add('completed') : null;
@@ -199,6 +195,8 @@ const renderList = (todo, index) => {
     listItem.appendChild(deleteButton);
     documentFragment.appendChild(listItem);
     todoList.appendChild(documentFragment);
+    
+    label.addEventListener('click', () => toggleDone(listItem));
 }
 
 // Render list item with information about no todo to display.
@@ -302,9 +300,8 @@ let sortable = new Sortable(todoList, {
 
 // Event listeners
 todoForm.addEventListener('submit', (event) => addTodo(event));
-todoList.addEventListener('click', toggleDone);
-todoList.addEventListener('click', removeTodo);
 clearCompleted.addEventListener('click', removeCompletedTodos);
+todoList.addEventListener('click', (event) => removeTodo(event));
 tabs.forEach(tab => {
     tab.addEventListener('click', (event) => {
         let activeTab = event.target.dataset.tabs;
