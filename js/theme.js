@@ -19,7 +19,7 @@ export default class ThemeSwitcher {
 
         this.lightTheme = 'light';
         this.darkTheme = 'dark';
-        this.theme = JSON.parse(localStorage.getItem('theme')) || this.lightTheme;
+        this.theme = JSON.parse(localStorage.getItem('theme')) || this.darkTheme;
         return true;
     }
 
