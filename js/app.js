@@ -187,6 +187,7 @@ const renderList = (todo, index) => {
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('data-index', `${index}`);
     deleteButton.setAttribute('data-deleteBtn', ``);
+    deleteButton.setAttribute('aria-label', `Remove todo`);
     deleteButton.classList.add('todo__deleteBtn');
     deleteButton.innerHTML = `<i class="i-cross todo__deleteBtn-icon"></i>`;
     
