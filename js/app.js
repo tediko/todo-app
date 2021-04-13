@@ -174,7 +174,7 @@ const renderList = (todo, index) => {
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('data-index', `${index}`);
     checkbox.setAttribute('id', `item${index}`);
-    todo.done ? checkbox.setAttribute('checked', 'true') : null;
+    todo.done ? checkbox.checked = true : checkbox.checked = false;
     
     const label = document.createElement('label');
     label.setAttribute('for', `item${index}`);
