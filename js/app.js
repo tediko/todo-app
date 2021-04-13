@@ -13,7 +13,7 @@ const todoList = document.querySelector('[data-list]');
 const itemsCounter = document.querySelector('[data-counter]');
 const tabs = document.querySelectorAll('[data-tabs]');
 const clearCompleted = document.querySelector('[data-clear]');
-console.log(sampleTodos);
+
 let todos = JSON.parse(localStorage.getItem('todos')) || localStorage.setItem('todos', JSON.stringify(sampleTodos));
 let tabOpen = 'all';
 
@@ -164,7 +164,7 @@ const disableAllDeleteButtons = () => {
 const renderList = (todo, index) => {
     let documentFragment = new DocumentFragment();
 
-    let listItem = document.createElement('li');
+    const listItem = document.createElement('li');
     listItem.classList.add('todo__item');
     listItem.setAttribute('id', `${todo.id}`);
     todo.done ? listItem.classList.add('completed') : null;
