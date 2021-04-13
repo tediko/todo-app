@@ -179,7 +179,7 @@ const renderList = (todo, index) => {
     const label = document.createElement('label');
     label.setAttribute('for', `item${index}`);
     label.classList.add('todo__label');
-    label.innerHTML = `<p class="todo__label-text">${todo.text}</p>`
+    label.innerHTML = `<span class="todo__label-text">${todo.text}</span>`
     
     const span = document.createElement('span');
     span.classList.add('todo__span');
