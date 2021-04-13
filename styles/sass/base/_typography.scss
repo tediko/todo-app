@@ -12,7 +12,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     padding: 48px 24px 0px 24px;
-    transition: background-color 1s;
+    /* transition: background-color 1s; */
     
     @include breakpoint('sm') {
         padding: 70px 24px 0px 24px;
