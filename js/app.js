@@ -198,7 +198,7 @@ const renderList = (todo, index) => {
     documentFragment.appendChild(listItem);
     todoList.appendChild(documentFragment);
     
-    label.addEventListener('click', () => toggleDone(listItem));
+    checkbox.addEventListener('click', () => toggleDone(listItem));
 }
 
 // Render list item with information about no todo to display.
