@@ -42,6 +42,7 @@ Hello! This is my solution to [Todo App - Frontend Mentor](https://www.frontendm
 ### Links
 
 [LIVE PREVIEW](https://todoapp-tediko.netlify.app/)
+
 [Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow.
 
 ## My process
